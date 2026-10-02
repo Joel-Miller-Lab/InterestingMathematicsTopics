@@ -1,0 +1,31 @@
+.die-face {
+  font-size: 3em;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.bd-content .table img[src$="die-8.png"] {
+  width: 2em;
+  height: auto;
+  vertical-align: middle;
+}
+
+.table thead .die-face {
+  font-weight: normal;
+}
+
+.bd-content .table > :not(caption) > * > * {
+  vertical-align: middle;
+} 
+
+.bd-content .table td:has(.sum-2) { background-color: #e8f4fc !important; }
+.bd-content .table td:has(.sum-5) { background-color: #eeeafb !important; }
+.bd-content .table td:has(.sum-8) { background-color: #f6eafa !important; }
+.bd-content .table td:has(.sum-11) { background-color: #fbe9ef !important; }
+.bd-content .table td:has(.sum-3) { background-color: #fff0e3 !important; }
+.bd-content .table td:has(.sum-6) { background-color: #fff6d9 !important; }
+.bd-content .table td:has(.sum-9) { background-color: #eef4d8 !important; }
+.bd-content .table td:has(.sum-12) { background-color: #e2f2e7 !important; }
+.bd-content .table td:has(.sum-4) { background-color: #def3f1 !important; }
+.bd-content .table td:has(.sum-7) { background-color: #e2eff8 !important; }
+.bd-content .table td:has(.sum-10) { background-color: #e9eafa !important; }
