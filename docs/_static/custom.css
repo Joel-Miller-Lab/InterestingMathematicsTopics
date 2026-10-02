@@ -29,3 +29,8 @@
 .bd-content .table td:has(.sum-4) { background-color: #def3f1 !important; }
 .bd-content .table td:has(.sum-7) { background-color: #e2eff8 !important; }
 .bd-content .table td:has(.sum-10) { background-color: #e9eafa !important; }
+
+/* Keep text legible against the light pastel fills in both light and dark themes. */
+.bd-content .table td:has([class^="sum-"]) {
+  color: #202124 !important;
+}
