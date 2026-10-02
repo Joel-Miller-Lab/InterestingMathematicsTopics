@@ -14,7 +14,7 @@ Consider two normal dice.  When we roll these dice, a sum of $7$ is much more pr
 
 Let $S$ be the value of the sum of the two dice.  The probability that $S=2$ is $P[S=2]=1/36$.  The probability of a sum of $7$ is $P[S=7]=6/36=1/6$. 
 
-Remarkably, there is another pair of $6$-sided dice with positive integer values which yield the same sums with the same probabilities.  The two dice in the pair are numbered differently:
+Remarkably, there is another pair of $6$-sided dice with positive integer values which yield the same sums with the same probabilities.  This pair is known as "Sicherman Dice".  The two dice in the pair are numbered differently:
 
 |           | <span class="die-face">⚀</span> | <span class="die-face">⚁</span> | <span class="die-face">⚁</span> | <span class="die-face">⚂</span> | <span class="die-face">⚂</span> | <span class="die-face">⚃</span> |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
@@ -25,7 +25,7 @@ Remarkably, there is another pair of $6$-sided dice with positive integer values
 | <span class="die-face">⚅</span> | <span class="sum-7">7</span> | <span class="sum-8">8</span> | <span class="sum-8">8</span> | <span class="sum-9">9</span> | <span class="sum-9">9</span> | <span class="sum-10">10</span>|
 | ![Die showing eight](die-8.png) | <span class="sum-9">9</span> | <span class="sum-10">10</span>| <span class="sum-10">10</span>| <span class="sum-11">11</span>| <span class="sum-11">11</span>| <span class="sum-12">12</span>|
 
-It will turn out that there is only one such pair of dice that matches the normal pair.  This pair is known as "Sicherman Dice".  We will learn an efficient way to find that pair and show that it is the only such pair.  The methods we learn are used in applications as varied as infectious disease modelling, statistical physics, and the calculation of some infinite sums.
+It will turn out that this is the only pair of dice whose sums match the normal pair.  We will learn an efficient way to find that pair and show that it is the only such pair.  The methods we learn are used in applications as varied as infectious disease modelling, statistical physics, and the calculation of some infinite sums.
 
 ## A warmup problem
 
