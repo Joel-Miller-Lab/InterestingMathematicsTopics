@@ -108,11 +108,15 @@ So $x^2+x-1 = (x+\phi)(x+\psi)$
 - Use the fact that $x^2+x-1=(x+\phi)(x+\psi)$ to show that $\phi\psi=-1$.  (you can directly check that the product is $-1$, but you should be able to do this without knowing what $\phi$ and $\psi$ are, just knowing that the polynomial factors like this)
 - Similarly show $\phi+\psi = 1$.
 
-Later when we learn Calculus, we will use a method called *partial fractions* to help integrate.  If you have seen this before, you would normally write
+In Calculus we use the method of *partial fractions* to help integrate.  To help with integration, we would write
+
 \begin{align*}
 \frac{-1}{x^2+x-1} &= \frac{-1}{(x+\phi)(x+\psi)}\\
+&= \frac{A}{x+\phi} + \frac{B}{x+\phi}
 \end{align*}
-and solve for $A$ and $B$.  However, the formula we have for expanding a fraction out nicely when the denominator is a linear function is for the form $K/(1-rx)$.  It will be easier if we instead look for a sum of terms whose denominators look more like $1-rx$.  So using $\phi\psi=-1$, we will rewrite this as
+and solve for $A$ and $B$.  This is set up to take advantage of the fact that the integral of $K/(x-r)$ is relatively easy to calculate.
+
+However, the formula we have for expanding a fraction out nicely when the denominator is a linear function is for the form $K/(1-rx)$.  It will be easier if we instead look for a sum of terms whose denominators look more like $1-rx$.  So using $\phi\psi=-1$, we will rewrite this as
 
 \begin{align*}
 \frac{-1}{(x+\phi)(x+\psi)} &= \frac{-1}{(x+\phi)(x+\psi)}\left(\frac{1/\phi}{1/\phi}\right)\left(\frac{1/\psi}{1/\psi}\right)\\
@@ -127,14 +131,18 @@ So $f(x)$ can be written as
 \Rightarrow 1 &= A(1-x\psi) + B(1-x\phi)
 \end{align*}
 Choosing nice values of $x$, we have
-- $x=1/\phi$:  $1 = A(1-\psi/\phi)$
-- $x=1/\psi$:  $1 = B(1-\phi/\psi)$
+- $x=1/\phi$:  
+  
+  $1 = A(1-\psi/\phi)$
+- $x=1/\psi$:  
+
+  $1 = B(1-\phi/\psi)$
 
 So 
 - $ A = 1/(1-\psi/\phi)=\phi/(\phi-\psi)$
 - $B = 1/(1-\phi/\psi)=\psi/(\psi-\phi)$
 
-We can easily check that $\phi-\psi = \sqrt{5}$  So we get
+We can easily check that $\phi-\psi = \sqrt{5}$.  So we get
 
 \begin{align*}
 A &= \frac{1}{\sqrt{5}} \phi\\
