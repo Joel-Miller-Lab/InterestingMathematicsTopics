@@ -187,7 +187,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../MAT1001/MAT1001A/intro.html">Welcome to MAT1001A - Algebra, Functions and Graphing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../MAT1001/MAT1001A/SichermanDice.html">Sicherman Dice — Application of Polynomnial Factorisation</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">MAT1001B: </span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MAT1001B: Vectors, Matrices, Geometry and Linear Modelling</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../MAT1001/MAT1001B/intro.html">Welcome to MAT1001C — Mathematical Structures, Proof, Complex Numbers, Sequences and Computation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../MAT1001/MAT1001B/FibonacciFormula.html">Fibonacci Formula – Using matrices and eigenvectors</a></li>
@@ -395,6 +395,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-method">The method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preliminary">Preliminary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fibonacci-sequence">The Fibonacci Sequence</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-function">Generating Function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-the-fibonacci-formula">Deriving the Fibonacci formula</a></li>
 </ul>
@@ -427,20 +429,29 @@ document.write(`
 <h3>Essential knowledge<a class="headerlink" href="#essential-knowledge" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Factoring a quadratic polynomial.</p></li>
-<li><p>Expansion of <span class="math notranslate nohighlight">\(\frac{K}{1-r}\)</span> as the infinite sum</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[
-\frac{K}{1-rx} = K + Krx + Kr^2x^2 + \cdots
-\]</div>
-<ol class="arabic simple" start="3">
-<li><p>Partial fractions to convert <span class="math notranslate nohighlight">\(\frac{ax+b}{x^2+cx+d}\)</span> into <span class="math notranslate nohighlight">\(\frac{A}{x-r_1} + \frac{B}{x-r_2}\)</span> and find <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span></p></li>
 <li><p>Ability to reindex a sum:  <span class="math notranslate nohighlight">\(\sum_{n=0}^\infty T_{n+1} = \sum_{n=1}^\infty T_n\)</span></p></li>
+<li><p>Partial Fractions</p></li>
 </ol>
 </section>
 </section>
 <section id="the-method">
 <h2>The method<a class="headerlink" href="#the-method" title="Link to this heading">#</a></h2>
+<section id="preliminary">
+<h3>Preliminary<a class="headerlink" href="#preliminary" title="Link to this heading">#</a></h3>
+<p>Before starting, use proof by induction to show that</p>
+<div class="math notranslate nohighlight">
+\[
+(1-rx)(1+rx + \cdots + (rx)^{n}) = 1-(rx)^{n+1}
+\]</div>
+<p>From this, show that</p>
+<div class="math notranslate nohighlight">
+\[
+1 + rx + \cdots + (rx)^{n} = \frac{1}{1-rx} - \frac{(rx)^{n+1}}{1-rx}
+\]</div>
+<p>Show that if <span class="math notranslate nohighlight">\(|rx|&lt;1\)</span>, and <span class="math notranslate nohighlight">\(n \to \infty\)</span>, then <span class="math notranslate nohighlight">\(\left|\frac{(rx)^{n+1}}{1-rx}\right|\)</span> goes to zero.</p>
+</section>
+<section id="the-fibonacci-sequence">
+<h3>The Fibonacci Sequence<a class="headerlink" href="#the-fibonacci-sequence" title="Link to this heading">#</a></h3>
 <p>Consider the Fibonacci Sequence:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -450,10 +461,11 @@ F_2 &amp;= 2\\
 F_3 &amp;= 3\\
 F_4 &amp;=5\\
 \vdots &amp; \quad \vdots\\
-F_{n+1} &amp;= F_{n-1}+F_{n-2}\\
+F_{n} &amp;= F_{n-1}+F_{n-2}\\
 \vdots &amp; \quad \vdots
 \end{align*}\]</div>
 <p>We have found a formula for <span class="math notranslate nohighlight">\(F_n\)</span> previously through matrix algebra and eigenvectors.  Here we will use partial fractions to create an entirely different method to derive the same formula.</p>
+</section>
 <section id="generating-function">
 <h3>Generating Function<a class="headerlink" href="#generating-function" title="Link to this heading">#</a></h3>
 <div class="proof definition admonition" id="definition-0">
@@ -502,18 +514,21 @@ f(x) = F_0 + F_1 x^1 + F_2 x^2 + F_3 x^3 + \cdots  = \sum_{n=0}^\infty F_n x^n
 <p>We can factor the denominator.  With the quadratic formula we find that the roots of <span class="math notranslate nohighlight">\(x^2+x-1=0\)</span> are <span class="math notranslate nohighlight">\(-\frac{1\pm\sqrt{5}}{2}\)</span>.  We use <span class="math notranslate nohighlight">\(\phi\)</span> as a shorthand for <span class="math notranslate nohighlight">\(\frac{1+\sqrt{5}}{2}\)</span> (the Golden Ratio) and <span class="math notranslate nohighlight">\(\psi\)</span> as a shorthand for <span class="math notranslate nohighlight">\(\frac{1-\sqrt{5}}{2}\)</span>.</p>
 <p>So <span class="math notranslate nohighlight">\(x^2+x-1 = (x+\phi)(x+\psi)\)</span></p>
 <ul class="simple">
-<li><p>Use the fact that <span class="math notranslate nohighlight">\(x^2+x-1=(x+\phi)(x+\psi)\)</span> to show that <span class="math notranslate nohighlight">\(\phi\psi=-1\)</span>.  (you can directly check that the product is <span class="math notranslate nohighlight">\(-1\)</span>, but you’re asked to use a different method)</p></li>
+<li><p>Use the fact that <span class="math notranslate nohighlight">\(x^2+x-1=(x+\phi)(x+\psi)\)</span> to show that <span class="math notranslate nohighlight">\(\phi\psi=-1\)</span>.  (you can directly check that the product is <span class="math notranslate nohighlight">\(-1\)</span>, but you should be able to do this without knowing what <span class="math notranslate nohighlight">\(\phi\)</span> and <span class="math notranslate nohighlight">\(\psi\)</span> are, just knowing that the polynomial factors like this)</p></li>
 <li><p>Similarly show <span class="math notranslate nohighlight">\(\phi+\psi = 1\)</span>.</p></li>
 </ul>
-<p>When using partial fractions to help integrate, we would write</p>
+<p>In Calculus we use the method of <em>partial fractions</em> to help integrate.  To help with integration, we would write</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 \frac{-1}{x^2+x-1} &amp;= \frac{-1}{(x+\phi)(x+\psi)}\\
+&amp;= \frac{A}{x+\phi} + \frac{B}{x+\phi}
 \end{align*}\]</div>
-<p>and solve for <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>.  However, the formula we have for expanding a fraction out nicely when the denominator is a linear function is for the form <span class="math notranslate nohighlight">\(K/(1-rx)\)</span>.  So using <span class="math notranslate nohighlight">\(\phi\psi=-1\)</span>, we will rewrite this as</p>
+<p>and solve for <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>.  This is set up to take advantage of the fact that the integral of <span class="math notranslate nohighlight">\(K/(x-r)\)</span> is relatively easy to calculate.</p>
+<p>However, the formula we have for expanding a fraction out nicely when the denominator is a linear function is for the form <span class="math notranslate nohighlight">\(K/(1-rx)\)</span>.  It will be easier if we instead look for a sum of terms whose denominators look more like <span class="math notranslate nohighlight">\(1-rx\)</span>.  So using <span class="math notranslate nohighlight">\(\phi\psi=-1\)</span>, we will rewrite this as</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-\frac{-1}{(x+\phi)(x+\psi)} &amp;= \frac{-1}{(x+\phi)(x+\psi)} \frac{-\psi}{-\psi}\frac{-\phi}{-\phi}\\
+\frac{-1}{(x+\phi)(x+\psi)} &amp;= \frac{-1}{(x+\phi)(x+\psi)}\left(\frac{1/\phi}{1/\phi}\right)\left(\frac{1/\psi}{1/\psi}\right)\\
+&amp;= \frac{-(1/\phi)(1/\psi)}{(1 + x/\phi)(1+x/\psi)}\\
 &amp;= \frac{1}{(1-x\psi)(1-x\phi)}
 \end{align*}\]</div>
 <p>So <span class="math notranslate nohighlight">\(f(x)\)</span> can be written as</p>
@@ -523,30 +538,34 @@ f(x) = F_0 + F_1 x^1 + F_2 x^2 + F_3 x^3 + \cdots  = \sum_{n=0}^\infty F_n x^n
 \Rightarrow 1 &amp;= A(1-x\psi) + B(1-x\phi)
 \end{align*}\]</div>
 <p>Choosing nice values of <span class="math notranslate nohighlight">\(x\)</span>, we have</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(x=1/\phi\)</span>:  <span class="math notranslate nohighlight">\(1 = A(1-\psi/\phi)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(x=1/\psi\)</span>:  <span class="math notranslate nohighlight">\(1 = B(1-\phi/\psi)\)</span></p></li>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(x=1/\phi\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(1 = A(1-\psi/\phi)\)</span></p>
+</li>
+<li><p><span class="math notranslate nohighlight">\(x=1/\psi\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(1 = B(1-\phi/\psi)\)</span></p>
+</li>
 </ul>
 <p>So</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\( A = 1/(1-\psi/\phi)=\phi/(\phi-\psi)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(B = 1/(1-\phi/\psi)=\psi/(\psi-\phi)\)</span></p></li>
 </ul>
-<p>We can easily check that <span class="math notranslate nohighlight">\(\phi-\psi = \sqrt{5}\)</span>  So we get</p>
+<p>We can easily check that <span class="math notranslate nohighlight">\(\phi-\psi = \sqrt{5}\)</span>.  So we get</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 A &amp;= \frac{1}{\sqrt{5}} \phi\\
 B &amp;= -\frac{1}{\sqrt{5}} \psi
 \end{align*}\]</div>
-<p>So we finally have</p>
+<p>So we finally have (for <span class="math notranslate nohighlight">\(x\)</span> sufficiently small)</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-f(x) = \frac{\phi}{\sqrt{5}} \frac{1}{1-\phi x} - \frac{\psi}{\sqrt{5}} \frac{1}{1-\psi x}\\
+f(x) &amp;= \frac{\phi}{\sqrt{5}} \frac{1}{1-\phi x} - \frac{\psi}{\sqrt{5}} \frac{1}{1-\psi x}\\
 &amp;= \sum_{n=0}^\infty \frac{\phi}{\sqrt{5}} \phi^nx^n +  \sum_{n=0}^\infty -\frac{\psi}{\sqrt{5}} \psi^n x^n\\
 &amp;= \sum_{n=0}^\infty \left( \frac{\phi^{n+1}}{\sqrt{5}} - \frac{\psi^{n+1}}{\sqrt{5}}\right)x^n\\
 &amp;= \sum_{n=0}^\infty \frac{\phi^{n+1} - \psi^{n+1}}{\sqrt{5}} x^n
-
 \end{align*}\]</div>
+<p>[A technical detail — when we replace <span class="math notranslate nohighlight">\(\frac{\phi}{\sqrt{5}} \frac{1}{1-\phi x}\)</span> and <span class="math notranslate nohighlight">\(\frac{\psi}{\sqrt{5}} \frac{1}{1-\psi x}\)</span> with infinite sums — explain why we said “for sufficiently small <span class="math notranslate nohighlight">\(x\)</span>” above]</p>
 <p>But it also satisfies</p>
 <div class="math notranslate nohighlight">
 \[
@@ -624,6 +643,8 @@ F_n = \frac{\phi^{n+1}-\psi^{n+1}}{\sqrt{5}}
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-method">The method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preliminary">Preliminary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fibonacci-sequence">The Fibonacci Sequence</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-function">Generating Function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-the-fibonacci-formula">Deriving the Fibonacci formula</a></li>
 </ul>

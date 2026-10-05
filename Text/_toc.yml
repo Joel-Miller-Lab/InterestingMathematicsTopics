@@ -14,7 +14,13 @@ parts:
     chapters:
     - file: MAT1001/MAT1001B/intro
     - file: MAT1001/MAT1001B/FibonacciFormula
-  - caption: "MAT1001C: Mathematical Structures, Proof, Complex Numbers, Sequences and Computation"
+  #- caption: "MAT1001C: Mathematical Structures, Proof, Complex Numbers, Sequences and Computation"
+  #  maxdepth: 2
+  #  chapter:
+  #- caption: "MAT1002A: Differentiation"
+  #  maxdepth: 2
+  #  chapters:
+  - caption: "MAT1002B: Integration"
     maxdepth: 2
     chapters:
-    - file: MAT1001/MAT1001C/FibonacciFormula
+    - file: MAT1002/MAT1002B/FibonacciFormula

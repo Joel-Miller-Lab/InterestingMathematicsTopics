@@ -15,17 +15,29 @@ We will find out why this is true, and then find a formula for the $n$th Fibonac
 ### Essential knowledge
 
 1. Factoring a quadratic polynomial.
-2. Expansion of $\frac{K}{1-r}$ as the infinite sum
 
-$$
-\frac{K}{1-rx} = K + Krx + Kr^2x^2 + \cdots
-$$
+2. Ability to reindex a sum:  $\sum_{n=0}^\infty T_{n+1} = \sum_{n=1}^\infty T_n$
 
-3. Partial fractions to convert $\frac{ax+b}{x^2+cx+d}$ into $\frac{A}{x-r_1} + \frac{B}{x-r_2}$ and find $A$ and $B$
-
-4. Ability to reindex a sum:  $\sum_{n=0}^\infty T_{n+1} = \sum_{n=1}^\infty T_n$
-
+3. Partial Fractions
 ## The method
+
+### Preliminary
+Before starting, use proof by induction to show that
+
+$$
+(1-rx)(1+rx + \cdots + (rx)^{n}) = 1-(rx)^{n+1}
+$$
+
+From this, show that 
+
+$$
+1 + rx + \cdots + (rx)^{n} = \frac{1}{1-rx} - \frac{(rx)^{n+1}}{1-rx}
+$$
+
+Show that if $|rx|<1$, and $n \to \infty$, then $\left|\frac{(rx)^{n+1}}{1-rx}\right|$ goes to zero.  
+
+
+### The Fibonacci Sequence
 Consider the Fibonacci Sequence:
 
 \begin{align*}
@@ -35,7 +47,7 @@ F_2 &= 2\\
 F_3 &= 3\\
 F_4 &=5\\
 \vdots & \quad \vdots\\
-F_{n+1} &= F_{n-1}+F_{n-2}\\
+F_{n} &= F_{n-1}+F_{n-2}\\
 \vdots & \quad \vdots
 \end{align*}
 
@@ -93,17 +105,18 @@ We can factor the denominator.  With the quadratic formula we find that the root
 
 So $x^2+x-1 = (x+\phi)(x+\psi)$
 
-- Use the fact that $x^2+x-1=(x+\phi)(x+\psi)$ to show that $\phi\psi=-1$.  (you can directly check that the product is $-1$, but you're asked to use a different method)
+- Use the fact that $x^2+x-1=(x+\phi)(x+\psi)$ to show that $\phi\psi=-1$.  (you can directly check that the product is $-1$, but you should be able to do this without knowing what $\phi$ and $\psi$ are, just knowing that the polynomial factors like this)
 - Similarly show $\phi+\psi = 1$.
 
-When using partial fractions to help integrate, we would write
+Later when we learn Calculus, we will use a method called *partial fractions* to help integrate.  If you have seen this before, you would normally write
 \begin{align*}
 \frac{-1}{x^2+x-1} &= \frac{-1}{(x+\phi)(x+\psi)}\\
 \end{align*}
-and solve for $A$ and $B$.  However, the formula we have for expanding a fraction out nicely when the denominator is a linear function is for the form $K/(1-rx)$.  So using $\phi\psi=-1$, we will rewrite this as
+and solve for $A$ and $B$.  However, the formula we have for expanding a fraction out nicely when the denominator is a linear function is for the form $K/(1-rx)$.  It will be easier if we instead look for a sum of terms whose denominators look more like $1-rx$.  So using $\phi\psi=-1$, we will rewrite this as
 
 \begin{align*}
-\frac{-1}{(x+\phi)(x+\psi)} &= \frac{-1}{(x+\phi)(x+\psi)} \frac{-\psi}{-\psi}\frac{-\phi}{-\phi}\\
+\frac{-1}{(x+\phi)(x+\psi)} &= \frac{-1}{(x+\phi)(x+\psi)}\left(\frac{1/\phi}{1/\phi}\right)\left(\frac{1/\psi}{1/\psi}\right)\\
+&= \frac{-(1/\phi)(1/\psi)}{(1 + x/\phi)(1+x/\psi)}\\
 &= \frac{1}{(1-x\psi)(1-x\phi)}
 \end{align*}
 
@@ -127,15 +140,15 @@ We can easily check that $\phi-\psi = \sqrt{5}$  So we get
 A &= \frac{1}{\sqrt{5}} \phi\\
 B &= -\frac{1}{\sqrt{5}} \psi
 \end{align*}
-So we finally have
+So we finally have (for $x$ sufficiently small)
 
 \begin{align*}
-f(x) = \frac{\phi}{\sqrt{5}} \frac{1}{1-\phi x} - \frac{\psi}{\sqrt{5}} \frac{1}{1-\psi x}\\
+f(x) &= \frac{\phi}{\sqrt{5}} \frac{1}{1-\phi x} - \frac{\psi}{\sqrt{5}} \frac{1}{1-\psi x}\\
 &= \sum_{n=0}^\infty \frac{\phi}{\sqrt{5}} \phi^nx^n +  \sum_{n=0}^\infty -\frac{\psi}{\sqrt{5}} \psi^n x^n\\
 &= \sum_{n=0}^\infty \left( \frac{\phi^{n+1}}{\sqrt{5}} - \frac{\psi^{n+1}}{\sqrt{5}}\right)x^n\\
 &= \sum_{n=0}^\infty \frac{\phi^{n+1} - \psi^{n+1}}{\sqrt{5}} x^n
-
 \end{align*}
+[A technical detail --- when we replace $\frac{\phi}{\sqrt{5}} \frac{1}{1-\phi x}$ and $\frac{\psi}{\sqrt{5}} \frac{1}{1-\psi x}$ with infinite sums --- explain why we said "for sufficiently small $x$" above]  
 
 But it also satisfies
 
