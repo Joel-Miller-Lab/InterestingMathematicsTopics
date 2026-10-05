@@ -1,0 +1,20 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts: 
+  - caption: "MAT1001A: Algebra, Functions, and Graphs"
+    maxdepth: 2
+    chapters:
+    - file: MAT1001/MAT1001A/intro
+    - file: MAT1001/MAT1001A/SichermanDice
+  - caption: "MAT1001B: Vectors, Matrices, Geometry and Linear Modelling"
+    maxdepth: 2
+    chapters:
+    - file: MAT1001/MAT1001B/intro
+    - file: MAT1001/MAT1001B/FibonacciFormula
+  - caption: "MAT1001C: Mathematical Structures, Proof, Complex Numbers, Sequences and Computation"
+    maxdepth: 2
+    chapters:
+    - file: MAT1001/MAT1001C/FibonacciFormula
