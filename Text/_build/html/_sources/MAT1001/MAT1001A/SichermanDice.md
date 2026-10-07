@@ -10,11 +10,15 @@ P[S=4]&= \frac{3}{36} &\qquad P[S=8]&= \frac{5}{36} & P[S=12]&= \frac{1}{36}\\
 P[S=5]&= \frac{4}{36} &\qquad P[S=9]&= \frac{4}{36} & 
 \end{alignat*}
 
-In fact there is a different pair of dice numbered with positive integers that gives these same sums with the same probabilities.  It is made up of dice that are different from normal dice.
+In fact there is a different pair of dice numbered with positive integers that gives these same sums with the same probabilities.  The numberings of the two dice are:
+
+\begin{align*}
+&1, 2, 2, 3, 3, 4\\
+&1, 3, 4, 5, 6, 8
+\end{align*}
 
 It turns out we can find this pair using basic properties of probability and factorization of polynomials.  We can also show that it is unique, that is, it is the only other pair that gives the same sums.
 
-It will turn out that this is the only pair of dice (with positive integer values) whose sums match the normal pair. In this section, we will learn an efficient way to use polynomial factorization find that pair and to show that it is the only such pair.
 
 ###   Applications of the concepts
 
@@ -53,7 +57,7 @@ P[S=4]&= \frac{3}{36} &\qquad P[S=8]&= \frac{5}{36} & P[S=12]&= \frac{1}{36}\\
 P[S=5]&= \frac{4}{36} &\qquad P[S=9]&= \frac{4}{36} & 
 \end{alignat*}
 
-Remarkably, a pair of dice known as "Sicherman Dice" have these same sums and probabilities.  The two dice in the pair are numbered differently:
+We can check that the "Sicherman Dice" have these same sums and probabilities:
 
 |           | <span class="die-face">⚀</span> | <span class="die-face">⚁</span> | <span class="die-face">⚁</span> | <span class="die-face">⚂</span> | <span class="die-face">⚂</span> | <span class="die-face">⚃</span> |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
@@ -64,8 +68,7 @@ Remarkably, a pair of dice known as "Sicherman Dice" have these same sums and pr
 | <span class="die-face">⚅</span> | <span class="sum-7">7</span> | <span class="sum-8">8</span> | <span class="sum-8">8</span> | <span class="sum-9">9</span> | <span class="sum-9">9</span> | <span class="sum-10">10</span>|
 | ![Die showing eight](die-8.png) | <span class="sum-9">9</span> | <span class="sum-10">10</span>| <span class="sum-10">10</span>| <span class="sum-11">11</span>| <span class="sum-11">11</span>| <span class="sum-12">12</span>|
 
-
-We will show how to find the numbering of the Sicherman dice and show that there is no other pair with positive integer values that gives the same sums and probabilities.
+If we didn't know about the Sicherman dice, how could we find them?  How can we show that this is the only other pair of 6-sided dice with positive integer values that give the sum and probabilities?
 
 ### A warmup problem
 
