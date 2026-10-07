@@ -4,5 +4,5 @@ The website is at:
 https://joel-miller-lab.github.io/InterestingMathematicsTopics/
 
 
-I recommend starting at 
+For now, I recommend starting at 
 https://joel-miller-lab.github.io/InterestingMathematicsTopics/MAT1001/MAT1001A/SichermanDice.html

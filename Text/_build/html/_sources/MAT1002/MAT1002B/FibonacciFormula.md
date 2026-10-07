@@ -142,7 +142,7 @@ So
 - $ A = 1/(1-\psi/\phi)=\phi/(\phi-\psi)$
 - $B = 1/(1-\phi/\psi)=\psi/(\psi-\phi)$
 
-We can easily check that $\phi-\psi = \sqrt{5}$.  So we get
+We can check that $\phi-\psi = \frac{1+\sqrt{5}}{2} - \frac{1-\sqrt{5}}{2} = \sqrt{5}$.  So we get
 
 \begin{align*}
 A &= \frac{1}{\sqrt{5}} \phi\\
@@ -164,7 +164,7 @@ $$
 f(x) = \sum_{n=0}^\infty F_n x^n
 $$
 
-So
+So, by matching coefficients, we conclude:
 
 $$
 F_n = \frac{\phi^{n+1}-\psi^{n+1}}{\sqrt{5}}
